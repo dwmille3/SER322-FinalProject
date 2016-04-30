@@ -1,0 +1,12 @@
+.spacedInput {
+    margin-bottom: 1em;
+}
+
+.spacedInput > input, select {
+    width: 15em;
+}
+
+.container {
+    float: left;
+    padding: 1em;
+}
