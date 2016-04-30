@@ -1,15 +1,13 @@
 <?php
 
-function connect() {
-    $server_name = "localhost";
+function getConnection() {
+    $serverName = "localhost";
     $username = "root";
     $password = "";
-    $db_name = "ser322";
+    $databaseName = "ser322";
 
-    // Create connection
-    $connection = new mysqli($server_name, $username, $password, $db_name);
+    $connection = new mysqli($serverName, $username, $password, $databaseName);
 
-    // Check connection
     if ($connection->connect_error) {
         die("Connection failed: " . $connection->connect_error);
     }
@@ -17,39 +15,64 @@ function connect() {
     return $connection;
 }
 
-function whoPlayed($character, $movie) {
-    $query = "SELECT Name ";
-    $query .= "FROM FilmMaker f, CastCrew c, Movies m ";
-    $query .= "WHERE f.PID = c.PID ";
-    $query .= "AND m.MID = c.MID ";
-    $query .= "AND m.Title = \"$movie\" ";
-    $query .= "AND c.Role = \"$character\"";
-    $query .= ";";
-    return $query;
+function getData($selectionType, $text, $compare) {
+
+    if ($selectionType === "whoPlayed") {
+        return query_whoPlayed($text, $compare);
+    }
+
+    else if ($selectionType === "castOf") {
+        return query_castOf($text);
+    }
+
+    else if ($selectionType === "compareMovies") {
+        return query_compareMovies($text, $compare);
+    }
+    
+    # default value
+    return array("sql" => "", "columns" => array());
+}
+
+function query_whoPlayed($character, $movie) {
+    $columns = array("Name");
+
+    $sql = "SELECT Name ";
+    $sql .= "FROM FilmMaker f, CastCrew c, Movies m ";
+    $sql .= "WHERE f.PID = c.PID ";
+    $sql .= "AND m.MID = c.MID ";
+    $sql .= "AND m.Title = \"$movie\" ";
+    $sql .= "AND c.Role = \"$character\"";
+    $sql .= ";";
+
+    return array("sql" => $sql, "columns" => $columns);
 };
 
-function castOf($movie) {
-    $query = "SELECT f.Name, f.BirthDate, f.DeathDate, f.BirthPlace, f.Biography ";
-    $query .= "FROM FilmMaker f, CastCrew c, Movies m ";
-    $query .= "WHERE f.PID = c.PID ";
-    $query .= "AND m.MID = c.MID ";
-    $query .= "AND m.Title = \"$movie\"";
-    $query .= ";";
-    return $query;
+function query_castOf($movie) {
+    $columns = array("Name", "BirthDate", "DeathDate", "BirthPlace", "Biography");
+
+    $sql = "SELECT f.Name, f.BirthDate, f.DeathDate, f.BirthPlace, f.Biography ";
+    $sql .= "FROM FilmMaker f, CastCrew c, Movies m ";
+    $sql .= "WHERE f.PID = c.PID ";
+    $sql .= "AND m.MID = c.MID ";
+    $sql .= "AND m.Title = \"$movie\"";
+    $sql .= ";";
+
+    return array("sql" => $sql, "columns" => $columns);
 }
 
-function compareMovies($movie1, $movie2) {
-    $query = "SELECT f.Name, f.BirthDate, f.DeathDate, f.BirthPlace, f.Biography ";
-    $query .= "FROM FilmMaker f, CastCrew c, Movies m ";
-    $query .= "WHERE f.PID = c.PID ";
-    $query .= "AND m.MID = c.MID ";
-    $query .= "AND m.Title = \"$movie1\" ";
-    $query .= "AND f.PID IN (SELECT x.PID ";
-    $query .= "FROM FilmMaker x, CastCrew y, Movies z ";
-    $query .= "WHERE x.PID = y.PID ";
-    $query .= "AND z.MID = y.MID ";
-    $query .= "AND z.Title = \"$movie2\")";
-    $query .= ";";
-    return $query;
-}
+function query_compareMovies($movie1, $movie2) {
+    $columns = array("Name", "BirthDate", "DeathDate", "BirthPlace", "Biography");
+    $sql = "SELECT f.Name, f.BirthDate, f.DeathDate, f.BirthPlace, f.Biography ";
+    $sql .= "FROM FilmMaker f, CastCrew c, Movies m ";
+    $sql .= "WHERE f.PID = c.PID ";
+    $sql .= "AND m.MID = c.MID ";
+    $sql .= "AND m.Title = \"$movie1\" ";
+    $sql .= "AND f.PID IN (SELECT x.PID ";
+    $sql .= "FROM FilmMaker x, CastCrew y, Movies z ";
+    $sql .= "WHERE x.PID = y.PID ";
+    $sql .= "AND z.MID = y.MID ";
+    $sql .= "AND z.Title = \"$movie2\")";
+    $sql .= ";";
 
+    return array("sql" => $sql, "columns" => $columns);
+}

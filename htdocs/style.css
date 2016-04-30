@@ -1,8 +1,8 @@
-.spacedInput {
-    margin-bottom: 1em;
+.spaced-input {
+    margin: 1em 0;
 }
 
-.spacedInput > input, select {
+.spaced-input > input, select {
     width: 15em;
 }
 
