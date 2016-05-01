@@ -49,7 +49,7 @@ function getInsertQuery($formData) {
     else if ($insertionType === "Movie") {
         $query = 'INSERT INTO `movies` ';
         $query .= '(Title, ReleaseDate, DVDRelease, Runtime, Rating, ProductionType) VALUES (';
-        $query .= "\"$formData[title]\", \"$formData[releaseDate]\", \"$formData[dvdReleaseDate]\", ";
+        $query .= "\"$formData[movieTitle]\", \"$formData[releaseDate]\", \"$formData[dvdReleaseDate]\", ";
         $query .= "\"$formData[runtime]\", \"$formData[rating]\", \"$formData[productionType]\"";
         $query .= ');';
     }
@@ -57,7 +57,7 @@ function getInsertQuery($formData) {
     else if ($insertionType === "Theater") {
         $query = 'INSERT INTO `theaters` ';
         $query .= '(Name, Location, NoOfTheaters, PhoneNo) VALUES (';
-        $query .= "\"$formData[title]\", \"$formData[location]\", \"$formData[noOfTheaters]\", ";
+        $query .= "\"$formData[theaterName]\", \"$formData[location]\", \"$formData[noOfTheaters]\", ";
         $query .= "\"$formData[phoneNo]\"";
         $query .= ');';
     }

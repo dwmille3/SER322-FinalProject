@@ -62,7 +62,7 @@
                 </div>
 
                 <div class="hiddenChoices" id="movieChoice">
-                    <input type="text" name="title" id="title" placeholder="title ...">
+                    <input type="text" name="movieTitle" id="movieTitle" placeholder="title ...">
                     <input type="date" name="releaseDate" id="releaseDate" placeholder="release date ...">
                     <input type="date" name="dvdReleaseDate" id="dvdReleaseDate" placeholder="dvd release date ...">
                     <input type="text" name="runtime" id="runtime" placeholder="runtime ...">
@@ -71,7 +71,7 @@
                 </div>
 
                 <div class="hiddenChoices" id="theaterChoice">
-                    <input type="text" name="title" id="name" placeholder="name ...">
+                    <input type="text" name="theaterName" id="theaterName" placeholder="name ...">
                     <input type="date" name="location" id="location" placeholder="location ...">
                     <input type="text" name="noOfTheaters" id="noOfTheaters" placeholder="number of theaters ...">
                     <input type="text" name="phoneNo" id="phoneNo" placeholder="phone number ...">
