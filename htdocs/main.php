@@ -25,3 +25,22 @@ if (isset($_POST["btnSubmit"])) {
     # Close connection
     $connection->close();
 }
+
+else if (isset($_POST["btnInsert"]) &&isset($_POST["radioChoice"]) ) {
+    $connection = getConnection();
+    $query = getInsertQuery($_POST);
+    $result = $connection->query($query);
+
+    echo "<p>Query: '$query' <br></p>";
+
+    if ($result) {
+        echo "<p>Query successfully added.</p>";
+    }
+
+    else {
+        echo "<p>Error with query.</p>";
+    }
+
+    # Close connection
+    $connection->close();
+}

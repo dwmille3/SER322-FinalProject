@@ -6,7 +6,21 @@
     width: 15em;
 }
 
+.parent-container {
+    width: 100%;
+    clear: left;
+}
+
+.hiddenChoices {
+    display: none;
+}
+
 .container {
     float: left;
     padding: 1em;
+}
+
+.container p {
+    width: 800px;
+    word-wrap: break-word;
 }

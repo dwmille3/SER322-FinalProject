@@ -28,9 +28,45 @@ function getData($selectionType, $text, $compare) {
     else if ($selectionType === "compareMovies") {
         return query_compareMovies($text, $compare);
     }
-    
+
     # default value
     return array("sql" => "", "columns" => array());
+}
+
+function getInsertQuery($formData) {
+
+    $insertionType = $formData["radioChoice"];
+
+    if ($insertionType === "Person") {
+        $query = 'INSERT INTO `filmmaker` ';
+        $query .= '(Name, BirthDate, DeathDate, BirthPlace, Biography, Height, Ethnicity, Nickname, Note) VALUES (';
+        $query .= "\"$formData[name]\", \"$formData[birthDate]\", \"$formData[deathDate]\", ";
+        $query .= "\"$formData[birthPlace]\", \"$formData[biography]\", \"$formData[height]\", ";
+        $query .= "\"$formData[ethnicity]\", \"$formData[nickname]\", \"$formData[note]\"";
+        $query .= ');';
+    }
+
+    else if ($insertionType === "Movie") {
+        $query = 'INSERT INTO `movies` ';
+        $query .= '(Title, ReleaseDate, DVDRelease, Runtime, Rating, ProductionType) VALUES (';
+        $query .= "\"$formData[title]\", \"$formData[releaseDate]\", \"$formData[dvdReleaseDate]\", ";
+        $query .= "\"$formData[runtime]\", \"$formData[rating]\", \"$formData[productionType]\"";
+        $query .= ');';
+    }
+
+    else if ($insertionType === "Theater") {
+        $query = 'INSERT INTO `theaters` ';
+        $query .= '(Name, Location, NoOfTheaters, PhoneNo) VALUES (';
+        $query .= "\"$formData[title]\", \"$formData[location]\", \"$formData[noOfTheaters]\", ";
+        $query .= "\"$formData[phoneNo]\"";
+        $query .= ');';
+    }
+
+    else {
+        return "";
+    }
+
+    return str_replace("\"\"", "NULL", $query);
 }
 
 function query_whoPlayed($character, $movie) {
@@ -62,6 +98,7 @@ function query_castOf($movie) {
 
 function query_compareMovies($movie1, $movie2) {
     $columns = array("Name", "BirthDate", "DeathDate", "BirthPlace", "Biography");
+
     $sql = "SELECT f.Name, f.BirthDate, f.DeathDate, f.BirthPlace, f.Biography ";
     $sql .= "FROM FilmMaker f, CastCrew c, Movies m ";
     $sql .= "WHERE f.PID = c.PID ";
