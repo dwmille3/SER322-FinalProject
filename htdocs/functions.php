@@ -16,7 +16,6 @@ function getConnection() {
 }
 
 function getData($selectionType, $text, $compare) {
-
     if ($selectionType === "whoPlayed") {
         return query_whoPlayed($text, $compare);
     }
@@ -27,6 +26,14 @@ function getData($selectionType, $text, $compare) {
 
     else if ($selectionType === "compareMovies") {
         return query_compareMovies($text, $compare);
+    }
+    
+    else if ($selectionType === "charactersOfPerson") {
+        return query_charactersOfPerson($text);
+    }
+    
+    else if ($selectionType === "theatersOfMovie") {
+        return query_theatersOfMovie($text);
     }
 
     # default value
@@ -109,6 +116,32 @@ function query_compareMovies($movie1, $movie2) {
     $sql .= "WHERE x.PID = y.PID ";
     $sql .= "AND z.MID = y.MID ";
     $sql .= "AND z.Title = \"$movie2\")";
+    $sql .= ";";
+
+    return array("sql" => $sql, "columns" => $columns);
+}
+
+function query_charactersOfPerson($person){
+    $columns = array("Role", "Title");
+    
+    $sql = "SELECT c.Role, m.Title ";
+    $sql .= "FROM FilmMaker f, CastCrew c, Movies m ";
+    $sql .= "WHERE f.PID = c.PID ";
+    $sql .= "AND m.MID = c.MID ";
+    $sql .= "AND f.Name = \"$person\"";
+    $sql .= ";";
+
+    return array("sql" => $sql, "columns" => $columns);
+}
+
+function query_theatersOfMovie($movie){
+    $columns = array("Name", "Location");
+    
+    $sql = "SELECT t.Name, t.Location ";
+    $sql .= "FROM Theaters t, Showing s, Movies m ";
+    $sql .= "WHERE t.TID = s.TID ";
+    $sql .= "AND m.MID = s.MID ";
+    $sql .= "AND m.Title = \"$movie\"";
     $sql .= ";";
 
     return array("sql" => $sql, "columns" => $columns);

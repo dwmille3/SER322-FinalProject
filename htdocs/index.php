@@ -10,6 +10,7 @@
 </head>
 
 <body>
+
 <div class="parent-container">
     <div class="container">
         <h1>Query: </h1>
@@ -19,6 +20,8 @@
                     <option value="whoPlayed">Who played... in ..?</option>
                     <option value="castOf">Cast and Crew of...</option>
                     <option value="compareMovies">Compare two movies cast list</option>
+                    <option value="charactersOfPerson">Get all characters played by ...</option>
+                    <option value="theatersOfMovie">Get all theaters playing ...</option>
                 </select>
             </div>
             <div class="spaced-input">
@@ -31,7 +34,6 @@
             </div>
         </form>
     </div>
-
     <div class="container">
         <h1>Result: </h1>
         <?php include('main.php') ?>
@@ -47,7 +49,6 @@
                 <input type="radio" value="Movie" name="radioChoice"> Movie <br>
                 <input type="radio" value="Theater" name="radioChoice"> Theater <br>
             </div>
-
             <div class="spaced-input">
                 <div class="hiddenChoices" id="personChoice">
                     <input type="text" name="name" id="name" placeholder="name ...">
@@ -60,7 +61,6 @@
                     <input type="text" name="nickname" id="nickname" placeholder="nickname ...">
                     <input type="text" name="note" id="note" placeholder="notes ...">
                 </div>
-
                 <div class="hiddenChoices" id="movieChoice">
                     <input type="text" name="movieTitle" id="movieTitle" placeholder="title ...">
                     <input type="date" name="releaseDate" id="releaseDate" placeholder="release date ...">
@@ -69,7 +69,6 @@
                     <input type="text" name="rating" id="rating" placeholder="rating ...">
                     <input type="text" name="productionType" id="productionType" placeholder="production type ...">
                 </div>
-
                 <div class="hiddenChoices" id="theaterChoice">
                     <input type="text" name="theaterName" id="theaterName" placeholder="name ...">
                     <input type="date" name="location" id="location" placeholder="location ...">
@@ -77,7 +76,6 @@
                     <input type="text" name="phoneNo" id="phoneNo" placeholder="phone number ...">
                 </div>
             </div>
-
             <div class="spaced-input">
                 <button name="btnInsert" type="submit">Insert</button>
             </div>
