@@ -16,20 +16,24 @@
                 border-radius: 15px;
                 border: 2px outset #D9D9D9;
                 background-image: url("http://www.gapidraw.com/temp/MainMenu1024.png");
+                background-size: auto
                 padding: 20px;
                 margin: 30px;
                 display: inline-block;
                 box-sizing: border-box;
                 width: 45%;
-                height: 100%;
                 font-size: 160%;
+                
                 
             }
             #left{
                 margin-right: 50px;
+                height: 100%;
             }
-        
-        
+            #right{
+                height: 500px;
+                position: absolute;
+            }
     </style>
 </head>
 
@@ -64,7 +68,7 @@
     </div>
 </div>
 
-<div class="parent-container" id="right">
+<div class="parent-container" id="right";>
     <div class="container">
         <h1>Insert: </h1>
         <form action="index.php" method="post">
