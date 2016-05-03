@@ -27,11 +27,11 @@ function getData($selectionType, $text, $compare) {
     else if ($selectionType === "compareMovies") {
         return query_compareMovies($text, $compare);
     }
-    
+
     else if ($selectionType === "charactersOfPerson") {
         return query_charactersOfPerson($text);
     }
-    
+
     else if ($selectionType === "theatersOfMovie") {
         return query_theatersOfMovie($text);
     }
@@ -91,9 +91,9 @@ function query_whoPlayed($character, $movie) {
 };
 
 function query_castOf($movie) {
-    $columns = array("Name", "BirthDate", "DeathDate", "BirthPlace", "Biography");
+    $columns = array("Name", "CastType", "BirthDate", "DeathDate", "BirthPlace", "Biography");
 
-    $sql = "SELECT f.Name, f.BirthDate, f.DeathDate, f.BirthPlace, f.Biography ";
+    $sql = "SELECT f.Name, c.CastType, f.BirthDate, f.DeathDate, f.BirthPlace, f.Biography ";
     $sql .= "FROM FilmMaker f, CastCrew c, Movies m ";
     $sql .= "WHERE f.PID = c.PID ";
     $sql .= "AND m.MID = c.MID ";
@@ -104,9 +104,9 @@ function query_castOf($movie) {
 }
 
 function query_compareMovies($movie1, $movie2) {
-    $columns = array("Name", "BirthDate", "DeathDate", "BirthPlace", "Biography");
+    $columns = array("Name", "CastType", "BirthDate", "DeathDate", "BirthPlace", "Biography");
 
-    $sql = "SELECT f.Name, f.BirthDate, f.DeathDate, f.BirthPlace, f.Biography ";
+    $sql = "SELECT f.Name, c.CastType, f.BirthDate, f.DeathDate, f.BirthPlace, f.Biography ";
     $sql .= "FROM FilmMaker f, CastCrew c, Movies m ";
     $sql .= "WHERE f.PID = c.PID ";
     $sql .= "AND m.MID = c.MID ";
@@ -123,7 +123,7 @@ function query_compareMovies($movie1, $movie2) {
 
 function query_charactersOfPerson($person){
     $columns = array("Role", "Title");
-    
+
     $sql = "SELECT c.Role, m.Title ";
     $sql .= "FROM FilmMaker f, CastCrew c, Movies m ";
     $sql .= "WHERE f.PID = c.PID ";
@@ -135,9 +135,9 @@ function query_charactersOfPerson($person){
 }
 
 function query_theatersOfMovie($movie){
-    $columns = array("Name", "Location");
-    
-    $sql = "SELECT t.Name, t.Location ";
+    $columns = array("Name", "Location", "ShowTimes");
+
+    $sql = "SELECT t.Name, t.Location, s.ShowTimes ";
     $sql .= "FROM Theaters t, Showing s, Movies m ";
     $sql .= "WHERE t.TID = s.TID ";
     $sql .= "AND m.MID = s.MID ";
