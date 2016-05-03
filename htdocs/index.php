@@ -7,11 +7,35 @@
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
     <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
     <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+    <style>
+        h1{color:black;}
+        body{ 
+            background-image:url("https://cdn.elegantthemes.com/blog/wp-content/uploads/2013/09/bg-2-full.jpg");
+        }
+        #left, #right{
+                border-radius: 15px;
+                border: 2px outset #D9D9D9;
+                background-image: url("http://www.gapidraw.com/temp/MainMenu1024.png");
+                padding: 20px;
+                margin: 30px;
+                display: inline-block;
+                box-sizing: border-box;
+                width: 45%;
+                height: 100%;
+                font-size: 160%;
+                
+            }
+            #left{
+                margin-right: 50px;
+            }
+        
+        
+    </style>
 </head>
 
 <body>
 
-<div class="parent-container">
+<div class="parent-container" id="left">
     <div class="container">
         <h1>Query: </h1>
         <form action="index.php" method="post">
@@ -40,7 +64,7 @@
     </div>
 </div>
 
-<div class="parent-container">
+<div class="parent-container" id="right">
     <div class="container">
         <h1>Insert: </h1>
         <form action="index.php" method="post">
