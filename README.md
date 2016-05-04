@@ -18,7 +18,8 @@
 
 #### Known Issues & Limitations:
    * DO NOT ENTER QUOTES INTO ANY TEXT BOXES. Currently, our text boxes are subject to code injection vulnerabilities, since quotes are not currently handled in a secure way.
-   * Currently, our Query Dialogue Box requires EXACT MATCHES in order to display results. This is part of why the List Dialogue Box was  necessary.
+   * Currently, our Query Dialogue Box requires EXACT MATCHES in order to display results. This is part of why the List Dialogue Box was necessary.
+   * For the reason stated above, adding relations to the List Dialogue Box might have been useful, but we did not have time to do this.
    * You cannot add new relationships via the GUI. We would like to add this, but we did not.
    * Some text characters display improperly.	
    * Be careful about leaving any text boxes blank when attempting to insert a data entry, as you might not know which fields can be NULL.
