@@ -7,34 +7,6 @@
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
     <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
     <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
-    <style>
-        h1{color:black;}
-        body{ 
-            background-image:url("https://cdn.elegantthemes.com/blog/wp-content/uploads/2013/09/bg-2-full.jpg");
-        }
-        #left, #right{
-                border-radius: 15px;
-                border: 2px outset #D9D9D9;
-                background-image: url("http://www.gapidraw.com/temp/MainMenu1024.png");
-                background-size: auto
-                padding: 20px;
-                margin: 30px;
-                display: inline-block;
-                box-sizing: border-box;
-                width: 45%;
-                font-size: 160%;
-                
-                
-            }
-            #left{
-                margin-right: 50px;
-                height: 100%;
-            }
-            #right{
-                height: 500px;
-                position: absolute;
-            }
-    </style>
 </head>
 
 <body>
@@ -62,10 +34,7 @@
             </div>
         </form>
     </div>
-    <div class="container">
-        <h1>Result: </h1>
-        <?php include('main.php') ?>
-    </div>
+    
 </div>
 
 <div class="parent-container" id="right";>
@@ -108,6 +77,12 @@
                 <button name="btnInsert" type="submit">Insert</button>
             </div>
         </form>
+    </div>
+</div>
+<div class="parent-container" id="result";>
+    <div class="container">
+        <h1>Result: </h1>
+        <?php include('main.php') ?>
     </div>
 </div>
 
