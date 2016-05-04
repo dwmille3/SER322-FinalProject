@@ -72,7 +72,7 @@
                 </div>
                 <div class="hiddenChoices" id="theaterChoice">
                     <input type="text" name="theaterName" id="theaterName" placeholder="name ...">
-                    <input type="date" name="location" id="location" placeholder="location ...">
+                    <input type="text" name="location" id="location" placeholder="location ...">
                     <input type="text" name="noOfTheaters" id="noOfTheaters" placeholder="number of theaters ...">
                     <input type="text" name="phoneNo" id="phoneNo" placeholder="phone number ...">
                 </div>
