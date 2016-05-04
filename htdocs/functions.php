@@ -36,6 +36,18 @@ function getData($selectionType, $text, $compare) {
         return query_theatersOfMovie($text);
     }
 
+    else if ($selectionType === "getPerson") {
+        return query_getPerson($text);
+    }
+
+    else if ($selectionType === "getMovie") {
+        return query_getMovie($text);
+    }
+
+    else if ($selectionType === "getTheater") {
+        return query_getTheater($text);
+    }
+
     # default value
     return array("sql" => "", "columns" => array());
 }
@@ -75,6 +87,37 @@ function getInsertQuery($formData) {
 
     return str_replace("\"\"", "NULL", $query);
 }
+
+function query_getPerson($person){
+    $columns = array("Name", "BirthDate", "DeathDate", "BirthPlace",
+        "Biography", "Height", "Ethnicity", "Nickname", "Note");
+
+    $sql = 'SELECT `Name`, `BirthDate`, `DeathDate`, `BirthPlace`, `Biography`, `Height`, ';
+    $sql .= '`Ethnicity`, `Nickname`, `Note` FROM `filmmaker` f ';
+    $sql .= "WHERE f.Name = \"$person\"";
+
+    return array("sql" => $sql, "columns" => $columns);
+}
+
+function query_getMovie($movie){
+    $columns = array("Title", "ReleaseDate", "DVDRelease", "Runtime", "Rating", "ProductionType");
+
+    $sql = "SELECT `Title`, `ReleaseDate`, `DVDRelease`, `Runtime`, `Rating`, `ProductionType` FROM `movies` m ";
+    $sql .= "WHERE m.Title = \"$movie\"";
+    $sql .= ";";
+
+    return array("sql" => $sql, "columns" => $columns);
+}
+
+function query_getTheater($theater){
+    $columns = array("TID", "Name", "Location", "NoOfTheaters", "PhoneNo");
+    
+    $sql = "SELECT `TID`, `Name`, `Location`, `NoOfTheaters`, `PhoneNo` FROM `theaters` t ";
+    $sql .= "WHERE t.Name = \"$theater\"";
+    $sql .= ";";
+
+    return array("sql" => $sql, "columns" => $columns);
+}   
 
 function query_whoPlayed($character, $movie) {
     $columns = array("Name");

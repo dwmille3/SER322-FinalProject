@@ -22,6 +22,10 @@
                     <option value="compareMovies">Compare two movies cast list</option>
                     <option value="charactersOfPerson">Get all characters played by ...</option>
                     <option value="theatersOfMovie">Get all theaters playing ...</option>
+                    <option value="getPerson">Get all details of person ...</option>
+                    <option value="getMovie">Get all details of movie ...</option>
+                    <option value="getTheater">Get all details of theater ...</option>
+
                 </select>
             </div>
             <div class="spaced-input">
