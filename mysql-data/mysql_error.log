@@ -519,3 +519,11 @@ Version: '10.1.13-MariaDB'  socket: ''  port: 3306  mariadb.org binary distribut
 2016-05-04  9:36:44 11468 [Note] Server socket created on IP: '::'.
 2016-05-04  9:36:45 11468 [Note] d:\xampp\mysql\bin\mysqld.exe: ready for connections.
 Version: '10.1.13-MariaDB'  socket: ''  port: 3306  mariadb.org binary distribution
+2016-05-04  9:59:51 6336 [Note] d:\xampp\mysql\bin\mysqld.exe: Normal shutdown
+
+2016-05-04  9:59:51 6336 [Note] Event Scheduler: Purging the queue. 0 events
+2016-05-04  9:59:51 11596 [Note] InnoDB: FTS optimize thread exiting.
+2016-05-04  9:59:51 6336 [Note] InnoDB: Starting shutdown...
+2016-05-04  9:59:53 6336 [Note] InnoDB: Shutdown completed; log sequence number 5013943
+2016-05-04  9:59:53 6336 [Note] d:\xampp\mysql\bin\mysqld.exe: Shutdown complete
+
