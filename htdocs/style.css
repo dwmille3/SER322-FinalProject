@@ -1,5 +1,5 @@
 body {
-    background-image: url("https://cdn.elegantthemes.com/blog/wp-content/uploads/2013/09/bg-2-full.jpg");
+    background-image: url("http://i.imgur.com/ewkc2q2.jpg");
 }
 
 h1 {
@@ -46,6 +46,12 @@ h1 {
 }
 
 #result {
+    max-width: 100%;
+    width: 100%;
+    min-height: 200px;
+}
+
+#listings {
     max-width: 100%;
     width: 100%;
     min-height: 200px;

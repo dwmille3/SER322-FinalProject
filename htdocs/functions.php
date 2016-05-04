@@ -47,6 +47,18 @@ function getData($selectionType, $text, $compare) {
     else if ($selectionType === "getTheater") {
         return query_getTheater($text);
     }
+	
+	 else if ($selectionType === "People") {
+        return query_getPeople();
+    }
+	
+	 else if ($selectionType === "Movies") {
+        return query_getMovies();
+    }
+	
+	 else if ($selectionType === "Theaters") {
+        return query_getTheaters();
+    }
 
     # default value
     return array("sql" => "", "columns" => array());
@@ -99,6 +111,16 @@ function query_getPerson($person){
     return array("sql" => $sql, "columns" => $columns);
 }
 
+function query_getPeople(){
+    $columns = array("Name", "BirthDate", "DeathDate", "BirthPlace",
+        "Biography", "Height", "Ethnicity", "Nickname", "Note");
+
+    $sql = 'SELECT `Name`, `BirthDate`, `DeathDate`, `BirthPlace`, `Biography`, `Height`, ';
+    $sql .= '`Ethnicity`, `Nickname`, `Note` FROM `filmmaker` f ';
+
+    return array("sql" => $sql, "columns" => $columns);
+}
+
 function query_getMovie($movie){
     $columns = array("Title", "ReleaseDate", "DVDRelease", "Runtime", "Rating", "ProductionType");
 
@@ -109,11 +131,30 @@ function query_getMovie($movie){
     return array("sql" => $sql, "columns" => $columns);
 }
 
+function query_getMovies(){
+    $columns = array("Title", "ReleaseDate", "DVDRelease", "Runtime", "Rating", "ProductionType");
+
+    $sql = "SELECT `Title`, `ReleaseDate`, `DVDRelease`, `Runtime`, `Rating`, `ProductionType` FROM `movies` m ";
+    $sql .= ";";
+
+    return array("sql" => $sql, "columns" => $columns);
+}
+
+
 function query_getTheater($theater){
     $columns = array("TID", "Name", "Location", "NoOfTheaters", "PhoneNo");
     
     $sql = "SELECT `TID`, `Name`, `Location`, `NoOfTheaters`, `PhoneNo` FROM `theaters` t ";
     $sql .= "WHERE t.Name = \"$theater\"";
+    $sql .= ";";
+
+    return array("sql" => $sql, "columns" => $columns);
+}   
+
+function query_getTheaters(){
+    $columns = array("TID", "Name", "Location", "NoOfTheaters", "PhoneNo");
+    
+    $sql = "SELECT `TID`, `Name`, `Location`, `NoOfTheaters`, `PhoneNo` FROM `theaters` t ";
     $sql .= ";";
 
     return array("sql" => $sql, "columns" => $columns);

@@ -30,7 +30,7 @@
             </div>
             <div class="spaced-input">
                 <input type="text" name="text" id="text" placeholder="title/name/theater">
-                <input type="text" name="compare" id="compare" placeholder="title/name/theater">
+                <input type="text" name="compare" id="compare" placeholder="compare to title">
             </div>
             <div class="spaced-input">
                 <button name="btnSubmit" type="submit">Submit</button>
@@ -84,6 +84,23 @@
     <div class="container" id="result">
         <h1>Result: </h1>
         <?php include('main.php') ?>
+    </div>
+</div>
+
+<div class="parent-container" >
+    <div class="container" id="listings">
+        <h1>List All: </h1>
+		 <form action="index.php" method="post">
+            <div>
+                <input type="radio" value="People" name="radioList"> People <br>
+                <input type="radio" value="Movies" name="radioList"> Movies <br>
+                <input type="radio" value="Theaters" name="radioList"> Theaters <br>
+            </div>
+            <div class="spaced-input">
+                <button name="btnList" type="submit">Display List</button>
+            </div>
+        </form>
+        <?php include('list.php') ?>
     </div>
 </div>
 
