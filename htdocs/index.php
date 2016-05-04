@@ -30,7 +30,7 @@
             </div>
             <div class="spaced-input">
                 <input type="text" name="text" id="text" placeholder="title/name/theater">
-                <input type="text" name="compare" id="compare" placeholder="compare to title">
+                <input type="text" name="compare" id="compare" placeholder="title/compare to title">
             </div>
             <div class="spaced-input">
                 <button name="btnSubmit" type="submit">Submit</button>
