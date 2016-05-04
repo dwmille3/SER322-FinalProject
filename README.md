@@ -1,4 +1,4 @@
-"# SER322-FinalProject" 
+# SER322-FinalProject  
 To launch our UI:
 	1)Use XAMPP and use the included .sql files to recreate the database via the MySQL phpMyAdmin interface.
 		127_0_0_1.sql is our highest level directory, ser322.sql is our specific database. You will probably only need the second one.
