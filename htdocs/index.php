@@ -11,7 +11,7 @@
 
 <body>
 
-<div class="parent-container" id="left">
+<div class="parent-container">
     <div class="container">
         <h1>Query: </h1>
         <form action="index.php" method="post">
@@ -38,10 +38,6 @@
             </div>
         </form>
     </div>
-    
-</div>
-
-<div class="parent-container" id="right";>
     <div class="container">
         <h1>Insert: </h1>
         <form action="index.php" method="post">
@@ -83,8 +79,9 @@
         </form>
     </div>
 </div>
-<div class="parent-container" id="result";>
-    <div class="container">
+
+<div class="parent-container" >
+    <div class="container" id="result">
         <h1>Result: </h1>
         <?php include('main.php') ?>
     </div>

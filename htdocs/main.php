@@ -9,9 +9,11 @@ if (isset($_POST["btnSubmit"])) {
 
     if ($result->num_rows > 0) {
         while($row = $result->fetch_assoc()) {
+            echo "<p>";
             foreach ($data["columns"] as $column) {
-                echo "$column - " . $row[$column] . "<br>";
+                echo "<strong>$column</strong> - " . $row[$column] . "<br>";
             }
+            echo "</p>";
         }
     }
 
