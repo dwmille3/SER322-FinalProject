@@ -3,7 +3,8 @@
 #### To launch our UI:
  * 1) Use XAMPP and use the included .sql files to recreate the database via the MySQL phpMyAdmin interface.
    * 127_0_0_1.sql is our highest level directory, ser322.sql is our specific database. You will probably only need the second one.
- * 2) Once the database has been created, use the Apache Admin button to launch "http://localhost/index.php" to find our web interface.
+ * 2) in the xampp folder replace the htdocs with the one given in the FinalProject folder.  
+ * 3) Once the database has been created, use the Apache Admin button to launch "http://localhost/index.php" to find our web interface.
 
 #### Using the UI:
 * Query Dialogue Box:
